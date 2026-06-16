@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Web & UI Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0b0f19; 
+            color: #e2e8f0;
+        }
+        .text-gradient {
+            background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-muted { color: #94a3b8 !important; }
+        .modern-nav {
+            background: rgba(11, 15, 25, 0.85) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .nav-link { font-weight: 500; transition: color 0.25s ease; color: #fff; }
+        .nav-link:hover { color: #00f2fe !important; }
+        .hero-section { 
+            background: radial-gradient(circle at top right, rgba(14, 165, 233, 0.15), transparent 40%),
+                        linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
+            min-height: 75vh; 
+            padding-top: 80px; 
+        }
+        section { scroll-margin-top: 80px; } 
+        
+        .modern-card {
+            background: #111827;
+            border: 1px solid rgba(255, 255, 255, 0.05) !important;
+            border-radius: 16px !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .modern-card:hover { 
+            transform: translateY(-6px); 
+            border-color: rgba(79, 172, 254, 0.4);
+            box-shadow: 0 20px 38px rgba(0, 0, 0, 0.5) !important; 
+        }
+        
+        .clickable-card {
+            cursor: pointer;
+        }
+
+        .skill-badge { 
+            font-size: 0.8rem; 
+            font-weight: 500;
+            padding: 0.5rem 0.8rem !important;
+            border-radius: 8px !important;
+            background-color: #1e293b !important;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1 !important;
+            transition: all 0.2s ease;
+        }
+        .skill-badge:hover {
+            background-color: #00f2fe !important;
+            color: #0f172a !important;
+        }
+        .icon-box {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .form-control {
+            background-color: #111827;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        .form-control:focus {
+            background-color: #111827;
+            border-color: #4facfe;
+            box-shadow: 0 0 0 0.25rem rgba(79, 172, 254, 0.25);
+            color: #fff;
+        }
+        .btn-info {
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+            border: none;
+            color: #01081f;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-info:hover {
+            background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.4);
+            transform: translateY(-2px);
+            color: #01081f;
+        }
+
+        /* Modal Dark Theme Overrides */
+        .modal-content {
+            background-color: #111827;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+        }
+        .modal-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .modal-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .btn-close-white {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+        .project-item-box {
+            background-color: #1e293b;
+            transition: background-color 0.2s ease;
+        }
+        .project-item-box:hover {
+            background-color: #334155;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark modern-nav sticky-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4 tracking-tight text-white d-flex align-items-center" href="#home">
+                <span class="text-info">&lt;</span>Guthib<span class="text-info">/&gt;</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-2 mt-3 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link px-3 rounded-2 fw-bold" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3 rounded-2" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-outline-info px-4 fw-semibold text-info" href="#contact">Contact Me</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero-section d-flex align-items-center text-white text-center text-lg-start">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-7 pr-lg-5">
+                    <div class="d-inline-flex align-items-center gap-2 bg-secondary bg-opacity-20 text-info px-3 py-1.5 rounded-pill fs-6 fw-medium mb-3">
+                        Hello, World!
+                    </div>
+                    <h1 class="display-2 fw-extrabold mb-3 tracking-tight">I am <span class="text-info text-gradient">Erich!</span></h1>
+                    <p class="lead text-secondary opacity-75 mb-4 fs-4 fw-light">Designing and building clean, lightweight systems for fun.</p>
+                    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
+                        <a href="#portfolio" class="btn btn-info btn-lg px-4 py-3 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2">
+                            Explore My Workspace <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-flex justify-content-center justify-content-lg-end">
+                    <div class="position-relative">
+                        <div class="position-absolute top-50 start-50 translate-middle rounded-circle bg-info opacity-10 blur-xl" style="width: 380px; height: 380px;"></div>
+                        <img src="profile1.jpg" alt="Erich's Profile Picture" class="img-fluid rounded-circle object-fit-cover position-relative border border-1 border-info border-opacity-10 shadow-lg" style="width: 360px; height: 360px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-5 my-4">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <p class="text-info text-uppercase fw-bold tracking-wider small mb-2">Background</p>
+                    <h2 class="fw-bold display-5 mb-4">About Me</h2>
+                    <p class="lead text-muted lh-lg fs-5">
+                        A Polytechnic University of the Philippines student taking up <strong class="text-white fw-semibold">BSIT</strong>. I focus on crafting reliable full-stack web architectures to build hands-on experience in the digital space, looking for creative challenges across unexplored system boundaries.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-dark bg-opacity-25 border-top border-secondary border-opacity-10">
+        <div class="container py-3">
+            <div class="text-center mb-5">
+                <p class="text-info text-uppercase fw-bold tracking-wider small mb-2">Expertise</p>
+                <h2 class="fw-bold display-5 text-white">My Tech Stack</h2>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-5">
+                    <div class="p-4 modern-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="icon-box bg-info bg-opacity-10 text-info fs-3 mb-4">
+                                <i class="bi bi-window-sidebar"></i>
+                            </div>
+                            <h4 class="fw-bold text-white mb-1">Front-end & UI Design</h4>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2 mt-2">
+                            <span class="badge skill-badge">HTML5 / CSS3</span>
+                            <span class="badge skill-badge">Figma</span>
+                            <span class="badge skill-badge">Bootstrap 5</span>
+                            <span class="badge skill-badge">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="p-4 modern-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="icon-box bg-info bg-opacity-10 text-info fs-3 mb-4">
+                                <i class="bi bi-server"></i>
+                            </div>
+                            <h4 class="fw-bold text-white mb-1">Back-end Infrastructure</h4>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2 mt-2">
+                            <span class="badge skill-badge">PHP / MySQL</span>
+                            <span class="badge skill-badge">Python (Flask)</span>
+                            <span class="badge skill-badge">Node.js</span>
+                            <span class="badge skill-badge">Git Versioning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <p class="text-info text-uppercase fw-bold tracking-wider small mb-2">Showcase</p>
+                <h2 class="fw-bold display-5 text-white">Featured Work</h2>
+                <hr class="w-25 mx-auto text-info border-3 my-4">
+                <p class="text-muted lead">Select a showcase card to view implementation items and production architecture loops.</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                
+                <div class="col-md-5">
+                    <div class="card h-100 border-0 shadow-sm modern-card clickable-card" data-bs-toggle="modal" data-bs-target="#websitesShowcaseModal">
+                        <div class="card-body p-4 p-xl-5 d-flex flex-column justify-content-between position-relative">
+                            <div class="position-absolute top-0 end-0 p-3 fs-6"><i class="bi bi-arrows-angle-expand text-muted"></i></div>
+                            
+                            <div>
+                                <h4 class="card-title fw-bold text-white mb-1">Website Projects</h4>
+                                <span class="badge bg-info text-dark mb-3">Development & Back-end</span>
+                                
+                                <div class="card-footer bg-transparent border-0 text-start p-0 mt-2">
+                                    <span class="badge bg-dark me-1">PHP / MySQL</span>
+                                    <span class="badge bg-dark me-1">Flask / Jinja</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="card h-100 border-0 shadow-sm modern-card clickable-card" data-bs-toggle="modal" data-bs-target="#figmaShowcaseModal">
+                        <div class="card-body p-4 p-xl-5 d-flex flex-column justify-content-between position-relative">
+                            <div class="position-absolute top-0 end-0 p-3 fs-6"><i class="bi bi-arrows-angle-expand text-muted"></i></div>
+
+                            <div>
+                                <h4 class="card-title fw-bold text-white mb-1">Figma Projects</h4>
+                                <span class="badge bg-warning text-dark mb-3">UI/UX & Prototyping</span>
+                                
+                                <div class="card-footer bg-transparent border-0 text-start p-0 mt-2">
+                                    <span class="badge bg-dark me-1">Design Layouts</span>
+                                    <span class="badge bg-dark me-1">Prototyping</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5 bg-dark bg-opacity-25 border-top border-secondary border-opacity-10">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="p-4 p-md-5 modern-card rounded-3">
+                        <div class="text-center mb-4">
+                            <p class="text-info text-uppercase fw-bold tracking-wider small mb-2">Reach Out</p>
+                            <h2 class="fw-bold text-white">Let's Connect</h2>
+                            <p class="text-muted small">Have an application idea or an open development position? Send over a message.</p>
+                        </div>
+                        <form action="https://formspree.io/f/your-id-here" method="POST">
+                            <div class="mb-3">
+                                <label for="name" class="form-label small text-uppercase fw-bold text-muted">Name</label>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label small text-uppercase fw-bold text-muted">Email address</label>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label small text-uppercase fw-bold text-muted">Message</label>
+                                <textarea name="message" class="form-control" id="message" rows="5" placeholder="Let's build something great..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-info w-100 fw-bold mt-2">Send Message</button>
+                        </form>
+                        <hr class="my-4 border-secondary border-opacity-30">
+                        <div class="d-flex justify-content-center gap-4 fs-3">
+                            <a href="#" class="text-secondary" style="transition: color 0.3s;" onmouseover="this.style.color='#00f2fe'" onmouseout="this.style.color='#6c757d'"><i class="bi bi-github"></i></a>
+                            <a href="#" class="text-info"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="text-danger" style="transition: color 0.3s;" onmouseover="this.style.color='#00f2fe'" onmouseout="this.style.color='#dc3545'"><i class="bi bi-envelope-fill"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark bg-opacity-50 text-center text-muted py-4 mt-auto border-top border-secondary border-opacity-10">
+        <div class="container">
+            <small>&copy; 2026 Web Developer Portfolio. Built using Bootstrap 5.</small>
+        </div>
+    </footer>
+
+
+    <div class="modal fade" id="websitesShowcaseModal" tabindex="-1" aria-labelledby="websitesLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="websitesLabel"><i class="bi bi-globe text-info me-2"></i> Website Projects</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="d-flex flex-column gap-4">
+                        
+                        <div class="p-0 rounded overflow-hidden project-item-box border border-secondary border-opacity-10">
+                            <div class="position-relative" style="min-height: 200px;">
+                                <img src="farm2u.png" alt="Farm2Go E-Commerce Platform Layout" class="w-100 h-100 object-fit-cover">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-3" style="background: linear-gradient(to top, rgba(15,23,42,0.95), transparent);">
+                                    <h6 class="fw-bold text-white mb-0">Farm2Go E-Commerce Platform</h6>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-0 rounded overflow-hidden project-item-box border border-secondary border-opacity-10">
+                            <div class="position-relative" style="min-height: 200px;">
+                                <img src="meoo.png" alt="MEOO Museum Interface Showcase" class="w-100 h-100 object-fit-cover">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-3" style="background: linear-gradient(to top, rgba(15,23,42,0.95), transparent);">
+                                    <h6 class="fw-bold text-white mb-0">MEOO Museum Website</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-outline-secondary shadow-sm" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="figmaShowcaseModal" tabindex="-1" aria-labelledby="figmaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="figmaLabel"><i class="bi bi-figma text-warning me-2"></i> Figma UI/UX Designs</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="d-flex flex-column gap-4">
+                        
+                        <div class="p-0 rounded overflow-hidden project-item-box border border-secondary border-opacity-10">
+                            <div class="position-relative" style="min-height: 200px;">
+                                <img src="callingcard.png" alt="Calling Card Design" class="w-100 h-100 object-fit-cover">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-3" style="background: linear-gradient(to top, rgba(15,23,42,0.95), transparent);">
+                                    <h6 class="fw-bold text-white mb-0">Calling Card</h6>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-0 rounded overflow-hidden project-item-box border border-secondary border-opacity-10">
+                            <div class="position-relative" style="min-height: 240px;">
+                                <img src="pixel.png" alt="Google Pixel 10 Pro XL Showcase" class="w-100 h-100 object-fit-cover">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-3" style="background: linear-gradient(to top, rgba(15,23,42,0.95), transparent);">
+                                    <h6 class="fw-bold text-white mb-0">Google 10 Pro XL Showcase</h6>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-0 rounded overflow-hidden project-item-box border border-secondary border-opacity-10">
+                            <div class="position-relative" style="min-height: 200px;">
+                                <img src="3dphysics.png" alt="3D Physics Design" class="w-100 h-100 object-fit-cover">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-3" style="background: linear-gradient(to top, rgba(15,23,42,0.95), transparent);">
+                                    <h6 class="fw-bold text-white mb-0">3D Physics</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-outline-secondary shadow-sm" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
